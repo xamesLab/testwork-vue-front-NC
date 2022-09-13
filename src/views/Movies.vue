@@ -1,7 +1,8 @@
 <template>
-  <main>main</main>
-  <control-bar />
-  <loader />
+  <main>
+    <control-bar />
+    <loader />
+  </main>
 </template>
 <script>
 import ControlBar from "@/components/ControlBar.vue";

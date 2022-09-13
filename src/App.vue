@@ -36,8 +36,18 @@ export default {
   --grey-color: #988f8f;
 }
 
+body {
+  background-color: var(--main-bg-color);
+}
+
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.main {
+  width: 1320px;
+  min-height: 100vh;
+  margin: auto;
 }
 </style>

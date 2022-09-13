@@ -1,5 +1,7 @@
 <template>
-  <main>header</main>
+  <main class="header">
+    <h1 class="header__logo">#movienow</h1>
+  </main>
 </template>
 <script>
 export default {
@@ -8,7 +10,17 @@ export default {
 };
 </script>
 <style scoped>
-main {
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 16px;
   background-color: var(--main-red-color);
+  color: var(--dark-color);
+  height: 100px;
+}
+
+.header__logo {
+  text-transform: uppercase;
 }
 </style>
