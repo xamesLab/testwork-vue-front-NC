@@ -1,5 +1,7 @@
 <template>
-  <div class="loader"></div>
+  <div class="loader-wrap">
+    <div class="loader"></div>
+  </div>
 </template>
 <script>
 export default {
@@ -8,9 +10,12 @@ export default {
 };
 </script>
 <style scoped>
-/* main {
-  background-color: var(--main-red-color);
-} */
+.loader-wrap {
+position: absolute;
+top: calc(50% - 30px);
+left: calc(50% - 30px);
+}
+
 .loader {
   position: relative;
   display: flex;

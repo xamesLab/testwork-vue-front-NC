@@ -22,5 +22,8 @@ export default {
 
 .header__logo {
   text-transform: uppercase;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
 }
 </style>

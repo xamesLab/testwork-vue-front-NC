@@ -1,33 +1,44 @@
 <template>
-  <section class="control">
+  <main class="control">
     <header class="control__title">
-      <h1>Фильмы</h1>
+      <h1>Фильмы {{sortType}}</h1>
     </header>
-    <div class="control__wrap">
-      <section class="form">
+      <section class="control__wrap">
         <div class="input-wrapper">
-          <input type="radio" name="radioButton" id="radio1" />
+          <input type="radio" name="radioButton" id="radio1" value="name" v-model="sortType" />
           <label class="radio-label" for="radio1">Отсортировать по названию</label>
         </div>
         <div class="input-wrapper">
-          <input type="radio" name="radioButton" id="radio2" />
+          <input type="radio" name="radioButton" id="radio2" value="year" v-model="sortType" />
           <label class="radio-label" for="radio2">Отсортировать по году</label>
         </div>
       </section>
-    </div>
-  </section>
+  </main>
 </template>
 <script>
 import SvgIcon from "@/components/UI/SvgIcon.vue";
 export default {
   components: { SvgIcon },
-  data() {},
+  data() {
+    return {
+      sortType: ''
+    }
+  },
   methods: {},
 };
 </script>
 <style scoped>
+  .control {
+    padding: 40px 0;
+  }
+
 .control__title {
   color: var(--main-color);
+}
+
+.control__wrap {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--grey-bg-color);
 }
 
 .control__item {
@@ -89,7 +100,7 @@ input[type="radio"]:checked + label::before {
 input[type="radio"]:checked + label::after {
   display: block;
 }
-.form .input-wrapper {
+.control__wrap .input-wrapper {
   position: relative;
   display: inline-block;
 }

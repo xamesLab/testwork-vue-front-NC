@@ -24,6 +24,7 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
+  list-style: none;
 
   --main-red-color: #fa2828;
   --second-red-color: #ff5252;
@@ -34,6 +35,11 @@ export default {
   --main-color: #ffffff;
   --second-color: #e5e5e5;
   --grey-color: #988f8f;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-color);
 }
 
 body {

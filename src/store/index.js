@@ -1,52 +1,25 @@
-// import Vue from "vue";
-// import Vuex from "vuex";
 import moviesService from "@/service";
-
-//Vue.use(Vuex);
-
-// export default new Vuex.Store({
-//   state: {},
-//   getters: {},
-//   actions: {
-//     getMovies({ commit }) {
-//       return moviesService.fetchMovies().then(
-//         (d) => {
-//           commit("getSuccess", d);
-//           return Promise.resolve(d);
-//         },
-//         (error) => {
-//           commit("getFailure");
-//           return Promise.reject(error);
-//         }
-//       );
-//     },
-//   },
-//   mutations: {
-//     getSuccess(state, items) {
-//       console.log("getSuccess");
-//     },
-//     getFailure(state) {
-//       console.log("getFailure");
-//     },
-//   },
-// });
 
 import { createStore } from "vuex";
 
 const store = createStore({
   state: {
     name: "Vue",
+    movies: [],
+    errors: '',
+    isLoading: false
   },
   getters: {},
   actions: {
     getMovies({ commit }) {
+      commit("setLoading", true)
       return moviesService.fetchMovies().then(
         (d) => {
-          commit("getSuccess", d);
+          commit("getMoviesSuccess", d);
           return Promise.resolve(d);
         },
         (error) => {
-          commit("getFailure");
+          commit("getFailure", error);
           return Promise.reject(error);
         }
       );
@@ -85,6 +58,17 @@ const store = createStore({
     getFailure(state) {
       console.log("getFailure");
     },
+    getMoviesSuccess(state, {data}) {
+      state.movies = data
+      state.isLoading = false
+    },
+    getMoviesFailure(state, e) {
+      state.errors = e
+      state.isLoading = false
+    },
+    setLoading(state, payload){
+      state.isLoading = payload
+    }
   },
 });
 
