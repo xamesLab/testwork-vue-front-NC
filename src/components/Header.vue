@@ -7,4 +7,8 @@ export default {
   methods: {},
 };
 </script>
-<style scoped></style>
+<style scoped>
+main {
+  background-color: var(--main-red-color);
+}
+</style>

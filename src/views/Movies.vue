@@ -1,13 +1,16 @@
 <template>
   <main>main</main>
   <control-bar />
+  <loader />
 </template>
 <script>
 import ControlBar from "@/components/ControlBar.vue";
+import Loader from "@/components/UI/Loader.vue";
 
 export default {
   components: {
     ControlBar,
+    Loader,
   },
   data() {},
   mounted() {

@@ -1,10 +1,10 @@
 <template>
-  <nav>
-    <!-- <router-link to="/">Home</router-link> |
+  <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
-  </nav>
   <Header />
-  <router-view />
+  <main class="main">
+    <router-view />
+  </main>
 </template>
 
 <script>
@@ -24,6 +24,16 @@ export default {
   padding: 0;
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
+
+  --main-red-color: #fa2828;
+  --second-red-color: #ff5252;
+  --main-bg-color: #363232;
+  --second-bg-color: #4d4747;
+  --grey-bg-color: #c4c4c4;
+  --dark-color: #000000;
+  --main-color: #ffffff;
+  --second-color: #e5e5e5;
+  --grey-color: #988f8f;
 }
 
 #app {
