@@ -1,4 +1,4 @@
-import { BASE_API, POSTER_URL } from "@/constants";
+import { BASE_API } from "@/constants";
 import axios from "axios";
 
 class MoviesService {
@@ -10,12 +10,6 @@ class MoviesService {
 
   async fetchMovieById(id) {
     return await axios.get(BASE_API + "/movie/" + id).then((response) => {
-      return response.data;
-    });
-  }
-
-  async fetchPosterById(id) {
-    return await axios.get(POSTER_URL).then((response) => {
       return response.data;
     });
   }

@@ -1,6 +1,4 @@
 <template>
-  <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
   <Header />
   <main class="main">
     <router-view />
@@ -14,7 +12,9 @@ export default {
   components: {
     Header,
   },
-  data() {},
+  data() {
+    return {};
+  },
 };
 </script>
 
@@ -52,8 +52,12 @@ body {
 }
 
 .main {
-  width: 1320px;
+  width: 1400px;
   min-height: 100vh;
   margin: auto;
+}
+
+.control {
+  padding: 40px 0;
 }
 </style>

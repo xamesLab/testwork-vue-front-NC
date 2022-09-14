@@ -3,17 +3,11 @@
     <div class="loader"></div>
   </div>
 </template>
-<script>
-export default {
-  data() {},
-  methods: {},
-};
-</script>
 <style scoped>
 .loader-wrap {
-position: absolute;
-top: calc(50% - 30px);
-left: calc(50% - 30px);
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
 }
 
 .loader {

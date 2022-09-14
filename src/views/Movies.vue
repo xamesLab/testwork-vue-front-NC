@@ -1,14 +1,10 @@
 <template>
+  <header class="control">
+    <control-bar @changeSort="(v) => (sortType = v)" />
+  </header>
   <main>
-    <control-bar />
     <loader v-if="isLoading" />
-    <!-- <movie-card v-if="movieList" :item="movieList"/> -->
-    <movie-card  v-for="item in movieList" :key="item.id" :item="item">
-      <span>{{item.id}}</span>
-    </movie-card>
-    
-    
-    
+    <movie-card class="shadow" v-for="item in movieList" :key="item.id" :item="item"></movie-card>
   </main>
 </template>
 <script>
@@ -20,27 +16,34 @@ export default {
   components: {
     ControlBar,
     Loader,
-    MovieCard
+    MovieCard,
   },
   data() {
     return {
-    }
+      sortType: "",
+      movies: [],
+    };
   },
-  computed:{
-    movieList (){
-      return this.$store.state.movies
+  computed: {
+    movieList() {
+      return this.$store.getters.sortList(this.sortType);
     },
-    isLoading (){
-      return this.$store.state.isLoading
-    }
+    isLoading() {
+      return this.$store.state.isLoading;
+    },
   },
-  
+
   mounted() {
-    // console.log(this.$store.state.name);
     this.$store.dispatch("getMovies");
-    // this.$store.dispatch("getMovieById", 368539);
   },
-  methods: {},
 };
 </script>
-<style scoped></style>
+<style scoped>
+.shadow {
+  transition: 0.3s ease;
+}
+.shadow:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+</style>

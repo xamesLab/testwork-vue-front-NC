@@ -1,37 +1,34 @@
 <template>
-  <main class="control">
-    <header class="control__title">
-      <h1>Фильмы {{sortType}}</h1>
-    </header>
-      <section class="control__wrap">
-        <div class="input-wrapper">
-          <input type="radio" name="radioButton" id="radio1" value="name" v-model="sortType" />
-          <label class="radio-label" for="radio1">Отсортировать по названию</label>
-        </div>
-        <div class="input-wrapper">
-          <input type="radio" name="radioButton" id="radio2" value="year" v-model="sortType" />
-          <label class="radio-label" for="radio2">Отсортировать по году</label>
-        </div>
-      </section>
-  </main>
+  <div class="control__title">
+    <h1>Фильмы</h1>
+  </div>
+  <section class="control__wrap">
+    <div class="input-wrapper">
+      <input type="radio" name="radioButton" id="radio1" value="title" v-model="sortType" @change="changeSort" />
+      <label class="radio-label" for="radio1">Отсортировать по названию</label>
+    </div>
+    <div class="input-wrapper">
+      <input type="radio" name="radioButton" id="radio2" value="year" v-model="sortType" @change="changeSort" />
+      <label class="radio-label" for="radio2">Отсортировать по году</label>
+    </div>
+  </section>
 </template>
 <script>
-import SvgIcon from "@/components/UI/SvgIcon.vue";
 export default {
-  components: { SvgIcon },
+  emits: ["changeSort"],
   data() {
     return {
-      sortType: ''
-    }
+      sortType: "",
+    };
   },
-  methods: {},
+  methods: {
+    changeSort() {
+      this.$emit("changeSort", this.sortType);
+    },
+  },
 };
 </script>
 <style scoped>
-  .control {
-    padding: 40px 0;
-  }
-
 .control__title {
   color: var(--main-color);
 }
@@ -61,7 +58,9 @@ input[type="radio"] {
 }
 
 .radio-label {
+  color: var(--grey-bg-color);
   padding-left: 24px;
+  margin-right: 35px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -82,17 +81,18 @@ input[type="radio"] {
   transform: translateY(-50%);
 }
 .radio-label::before {
+  width: 14px;
+  height: 14px;
   left: 0;
-  border: 1px solid #e6e6e6;
+  border: 1px solid var(--grey-bg-color);
 }
 .radio-label::after {
-  left: 3px;
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9487/icon-check.svg") no-repeat center center;
+  left: 0;
+  background: url("@/assets/checkbox_active.svg") no-repeat center center;
   display: none;
 }
 
 input[type="radio"]:checked + label::before {
-  background-color: #19191a;
   border: none;
   box-shadow: none;
 }

@@ -3,12 +3,6 @@
     <h1 class="header__logo">#movienow</h1>
   </main>
 </template>
-<script>
-export default {
-  data() {},
-  methods: {},
-};
-</script>
 <style scoped>
 .header {
   display: flex;
